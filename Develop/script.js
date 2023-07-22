@@ -8,16 +8,6 @@ var uppercaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numberCharacters = "0123456789"
 var specialCharacters = "!@#$%^&*()/*-+=[]{};:<>?"
 
-  // Write password to the #password input
-  function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-  }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 function generatePassword() {
   console.log("Clicked")
   //click generate password - prompt generate password criteria
@@ -37,6 +27,7 @@ function generatePassword() {
     console.log("adding lowercase letters")
   }
   else if (!userChoiceLowercase) {
+    window.alert("OK")
     console.log("no lowercase letters")
   }
 
@@ -46,6 +37,7 @@ function generatePassword() {
     console.log("adding uppercase letters")
   }
   else if (!userChoiceUppercase) {
+    window.alert("OK")
     console.log("no uppercase letters")
   }
 
@@ -54,7 +46,8 @@ function generatePassword() {
     passwordChar += numberCharacters
     console.log("adding numbers")
   }
-  else if (!userChoiceNumbers) {
+  else if (!numberCharacters) {
+    window.alert("OK")
     console.log("no numbers")
   }
 
@@ -63,11 +56,19 @@ function generatePassword() {
     passwordChar += specialCharacters
     console.log("adding special characters")
   }
-  else if (!userChoiceSpecCharacters) {
+  else if (!specialCharacters) {
+    window.alert("OK")
     console.log("no special characters")
   }
 
   window.alert("Ready to see your password?")
-
-  return;
 }
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+  }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
