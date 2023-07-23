@@ -13,18 +13,19 @@ function generatePassword() {
 
   function getPasswordLength() {
     console.log("Clicked")
-  //click generate password - prompt generate password criteria
-  var userChoiceLength = 0
-  while (userChoiceLength < 8 || userChoiceLength > 128) {
-    userChoiceLength = parseInt(window.prompt("How many characters do you want? Choose between 8-128"));
-    if (isNaN(userChoiceLength)) {
-    userChoiceLength = 0
+    //click generate password - prompt generate password criteria
+    var userChoiceLength = 0
+    while (userChoiceLength < 8 || userChoiceLength > 128) {
+      userChoiceLength = parseInt(window.prompt("How many characters do you want? Choose between 8-128 characters"));
+      if (isNaN(userChoiceLength)) {
+        userChoiceLength = 0
+      }
+    }
+    window.alert("Got it!")
+    return userChoiceLength;
   }
-  }
-  return userChoiceLength;
-}
 
-  var userChoiceLowercase = window.confirm("Want some lowercase letters?");
+  var userChoiceLowercase = window.confirm("Want lowercase letters?");
   if (userChoiceLowercase) {
     passwordChar = passwordChar.concat(lowercaseCharacters);
     console.log("adding lowercase letters");
@@ -32,36 +33,38 @@ function generatePassword() {
     console.log("no lowercase letters");
   }
 
-  var userChoiceUppercase = window.confirm("Want some uppercase letters?");
+  var userChoiceUppercase = window.confirm("How about some uppercase letters?");
   if (userChoiceUppercase) {
     passwordChar = passwordChar.concat(uppercaseCharacters);
-    console.log("adding lowercase letters");
+    console.log("adding uppercase letters");
   } else if (!userChoiceUppercase) {
     console.log("no uppercase letters");
   }
 
-  var userChoiceNumbers = window.confirm("Want some numbers?");
+  var userChoiceNumbers = window.confirm("You thinking about adding any numbers?");
   if (userChoiceNumbers) {
     passwordChar = passwordChar.concat(numberCharacters);
-    console.log("adding lowercase letters");
+    console.log("adding numbers");
   } else if (!userChoiceNumbers) {
     console.log("no numbers");
   }
 
-  var userChoiceSpecials = window.confirm("Want some special characters");
+  var userChoiceSpecials = window.confirm("Throw some special characters in there too?");
   if (userChoiceSpecials) {
     passwordChar = passwordChar.concat(specialCharacters);
     console.log("adding special characters");
   } else if (!userChoiceSpecials) {
     console.log("no special characters");
   }
+  window.alert("Abracadabra!")
+  window.alert("ALAKAZAM!")
 
   var passwordGenerate = "";
   for (var i = 0; i < userChoiceLength; i++) {
     passwordGenerate += passwordChar[Math.floor(Math.random() * (passwordChar.length))];
   }
 
-  
+
 
   return passwordGenerate;
 }
